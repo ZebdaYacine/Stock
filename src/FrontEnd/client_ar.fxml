@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="550.0" prefWidth="650.0" styleClass="back" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.ClientController">
+   <children>
+      <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0" promptText="الإسم" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="phone" focusColor="WHITE" labelFloat="true" layoutX="440.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0" promptText="الهاتف" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="adr" focusColor="WHITE" labelFloat="true" layoutX="10.0" layoutY="90.0" prefHeight="30.0" prefWidth="200.0" promptText="العنوان" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="debt" focusColor="WHITE" labelFloat="true" layoutX="440.0" layoutY="90.0" prefHeight="30.0" prefWidth="200.0" promptText="الدين السابق" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc" />
+      <JFXTextField fx:id="maxDebt" focusColor="WHITE" labelFloat="true" layoutX="440.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="الدين الاقصى" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="15000" unFocusColor="#0077cc" />
+      <Label fx:id="name_err" layoutX="10.0" layoutY="43.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="name_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phone_err" layoutX="440.0" layoutY="43.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="phone_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="adr_err" layoutX="10.0" layoutY="123.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="adresses_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="debt_err" layoutX="440.0" layoutY="123.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="dept_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="10.0" layoutY="177.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#add" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="إضافة" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#20c700" glyphName="ACCOUNT_PLUS" size="16" />
+         </graphic></JFXButton>
+      <JFXButton fx:id="update" layoutX="160.0" layoutY="177.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#update" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="تعديل" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#fc8b18" glyphName="EDIT" size="16" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="delete" buttonType="RAISED" layoutX="290.0" layoutY="197.0" onAction="#delete" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="Supprimer" textFill="GHOSTWHITE" visible="false">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="16" />
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="clientTable" layoutY="230.0" onMouseClicked="#select_client" prefHeight="270.0" prefWidth="650.0" stylesheets="@../Style/Table_Gestion_Css.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <columns>
+            <TableColumn fx:id="nameC" prefWidth="180.0" text="الإسم" />
+            <TableColumn fx:id="phoneC" prefWidth="100.0" text="الهاتف" />
+            <TableColumn fx:id="adrC" prefWidth="180.0" text="العنوان" />
+            <TableColumn fx:id="deptC" prefWidth="100.0" text="الدين" />
+            <TableColumn fx:id="deptmaxC" prefWidth="100.0" text="الدين الاقصى" />
+         </columns>
+      </TableView>
+      <Pane layoutX="10.0" layoutY="511.0" prefHeight="30.0" prefWidth="630.0" style="-fx-border-radius: 5;" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0">
+         <children>
+            <Label fx:id="benefitClient" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" prefHeight="30.0" prefWidth="460.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="7.0" text="الفائدة مع الزبون" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

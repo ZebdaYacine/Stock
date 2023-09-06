@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="700.0" prefWidth="1340.0" styleClass="home" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.StatController">
+    <children>
+      <HBox alignment="CENTER" prefHeight="90.0" prefWidth="1300.0" stylesheets="@../Style/style_stat.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+         <children>
+           <Label text="الإحصائيات" textFill="WHITE">
+                  <font>
+                      <Font name="Times New Roman" size="50.0" />
+                  </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+              </Label>
+            <Pane onMouseClicked="#capital" prefHeight="90.0" prefWidth="290.0" stylesheets="@../Style/style.css">
+               <children>
+                  <Label layoutY="10.0" text="الفائدة" textFill="WHITE">
+                     <font>
+                        <Font name="Times New Roman" size="25.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="110.0" layoutY="10.0" prefHeight="30.0" prefWidth="180.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label fx:id="Benefit1day" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="7.0" text="يوم واحد" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutY="50.0" prefHeight="30.0" prefWidth="290.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label fx:id="Benefit30day" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" prefHeight="30.0" prefWidth="230.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="5.0" layoutY="7.0" text="30 يوم" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="300.0" />
+               </HBox.margin>
+            </Pane>
+            <JFXDatePicker fx:id="dateStat" defaultColor="#0077cc" onAction="#dateStat" prefHeight="25.0" prefWidth="200.0" styleClass="jfxtextfield">
+               <HBox.margin>
+                  <Insets left="300.0" />
+               </HBox.margin>
+            </JFXDatePicker>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="120.0" prefHeight="150.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+              <Pane fx:id="statbordPrd" prefHeight="150.0" prefWidth="280.0" styleClass="statbord" stylesheets="@../Style/style.css">
+                  <children>
+                      <ImageView fitHeight="71.0" fitWidth="96.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../images/icons8-product-50.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="100.0" layoutY="25.0" text="المنتوجات" textFill="WHITE">
+                          <font>
+                              <Font name="Times New Roman" size="36.0" />
+                          </font>
+                      </Label>
+                      <Separator layoutX="15.0" layoutY="105.0" prefHeight="3.0" prefWidth="250.0" />
+                  <Pane layoutX="14.0" layoutY="113.0" prefHeight="30.0" prefWidth="250.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="5.0" layoutY="7.0" text="الكمية" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nbrPrdts" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" prefHeight="30.0" prefWidth="180.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+              </Pane>
+              <Pane fx:id="statbordSale" onMouseClicked="#statDate" prefHeight="150.0" prefWidth="280.0" styleClass="statbord" stylesheets="@../Style/style.css">
+                  <children>
+                      <ImageView fitHeight="79.0" fitWidth="63.0" layoutX="15.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../images/icons8-sales-performance-50.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="100.0" layoutY="10.0" text="المبيعات" textFill="WHITE">
+                          <font>
+                              <Font name="Times New Roman" size="25.0" />
+                          </font>
+                      </Label>
+                  <Pane layoutX="100.0" layoutY="50.0" prefHeight="30.0" prefWidth="165.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="3.0" layoutY="7.0" text="يوم واحد" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Sale1day" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" prefHeight="30.0" prefWidth="135.0" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                      <Separator layoutX="15.0" layoutY="105.0" prefHeight="3.0" prefWidth="250.0" />
+                  <Pane layoutX="15.0" layoutY="113.0" prefHeight="30.0" prefWidth="250.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="5.0" layoutY="7.0" text="30 يوم" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Sale30day" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+              </Pane>
+              <Pane fx:id="statbordPurchase" onMouseClicked="#statDate" prefHeight="150.0" prefWidth="280.0" styleClass="statbord" stylesheets="@../Style/style.css">
+                  <children>
+                      <ImageView fitHeight="79.0" fitWidth="63.0" layoutX="15.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../images/icons8-purchase-58.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="100.0" layoutY="10.0" text="المشتريات" textFill="WHITE">
+                          <font>
+                              <Font name="Times New Roman" size="25.0" />
+                          </font>
+                      </Label>
+                  <Pane layoutX="100.0" layoutY="50.0" prefHeight="30.0" prefWidth="165.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="3.0" layoutY="7.0" text="يوم واحد" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Prs1day" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" prefHeight="30.0" prefWidth="135.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                      <Separator layoutX="15.0" layoutY="105.0" prefHeight="3.0" prefWidth="250.0" />
+                  <Pane layoutX="15.0" layoutY="113.0" prefHeight="30.0" prefWidth="250.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="5.0" layoutY="7.0" text="30 يوم" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="Prs30day" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" prefHeight="30.0" prefWidth="190.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+              </Pane>
+              <Pane fx:id="statbordDette" prefHeight="150.0" prefWidth="280.0" styleClass="statbord" stylesheets="@../Style/style.css">
+                  <children>
+                      <ImageView fitHeight="79.0" fitWidth="63.0" layoutX="15.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../images/icons8-debt-50.png" />
+                          </image>
+                      </ImageView>
+                      <Label layoutX="100.0" layoutY="25.0" text="الديون" textFill="WHITE">
+                          <font>
+                              <Font name="Times New Roman" size="36.0" />
+                          </font>
+                      </Label>
+                      <Separator layoutX="15.0" layoutY="105.0" prefHeight="3.0" prefWidth="250.0" />
+                  <Pane layoutX="15.0" layoutY="113.0" prefHeight="30.0" prefWidth="250.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css">
+                     <children>
+                        <Label layoutX="5.0" layoutY="7.0" text="مجموع الديون" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="DebtTotal" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" prefHeight="30.0" prefWidth="180.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+                           <font>
+                              <Font name="Times New Roman" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+              </Pane>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="280.0" prefHeight="20.0" prefWidth="1300.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="280.0">
+         <children>
+            <Label prefWidth="280.0" text="المنتوجات القريبة من الإنتهاء" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label prefWidth="280.0" text="آخر المبيعات" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefWidth="280.0" text="آخر المشتريات" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefWidth="280.0" text="القائمة السوداء للزبائن" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutY="310.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
+         <children>
+            <TableView fx:id="ProductTable" prefHeight="200.0" prefWidth="280.0">
+              <columns>
+                <TableColumn fx:id="productPC" prefWidth="180.0" text="المنتوج" />
+                <TableColumn fx:id="quantityPC" prefWidth="100.0" text="الكمية المتبقية" />
+              </columns>
+               <stylesheets>
+                  <URL value="@../Style/style_stat.css" />
+                  <URL value="@../Style/style_stat_product.css" />
+               </stylesheets>
+            </TableView>
+            <TableView fx:id="SleTable" prefHeight="200.0" prefWidth="280.0">
+              <columns>
+                <TableColumn fx:id="ClientSle" prefWidth="130.0" text="الزبون" />
+                <TableColumn fx:id="MontentSle" prefWidth="100.0" text="المجموع" />
+                  <TableColumn fx:id="DateSle" prefWidth="120.0" text="التاريخ" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+               <stylesheets>
+                  <URL value="@../Style/style_stat.css" />
+                  <URL value="@../Style/style_stat_product.css" />
+               </stylesheets>
+            </TableView>
+            <TableView fx:id="PrsTable" prefHeight="200.0" prefWidth="280.0">
+              <columns>
+                <TableColumn fx:id="ProviderPrs" prefWidth="130.0" text="المورد" />
+                <TableColumn fx:id="MontentPrs" prefWidth="100.0" text="المجموع" />
+                  <TableColumn fx:id="DatePrs" prefWidth="120.0" text="التاريخ" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+               <stylesheets>
+                  <URL value="@../Style/style_stat.css" />
+                  <URL value="@../Style/style_stat_product.css" />
+               </stylesheets>
+            </TableView>
+            <TableView fx:id="ClientTable" prefHeight="200.0" prefWidth="280.0">
+              <columns>
+                <TableColumn fx:id="Client" prefWidth="150.0" text="الزبون" />
+                <TableColumn fx:id="Debt" prefWidth="130.0" text="الدين" />
+                  <TableColumn fx:id="Adr" prefWidth="130.0" text="Adresse" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="65.0" />
+               </HBox.margin>
+               <stylesheets>
+                  <URL value="@../Style/style_stat.css" />
+                  <URL value="@../Style/style_stat_product.css" />
+               </stylesheets>
+            </TableView>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

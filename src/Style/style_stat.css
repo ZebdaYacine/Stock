@@ -1,0 +1,49 @@
+.headerHbox{
+    -fx-background-color: linear-gradient(to left, #081018 0%, rgba(25,39,52,1) 45%,rgba(25,39,52,1) 55%, #081018 100%);
+}
+.pane_border {
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 5 5 5 5 ;
+}
+.table-view,
+.table-view:focused,
+.table-row-cell ,
+.table-view .corner ,
+.table-view .column-header-background,
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background{
+    -fx-background-color: #0D1925;
+}
+
+
+.table-view .column-header-background .label{
+    -fx-alignment:CENTER_LEFT;
+    -fx-background-color: #0D1925;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+.table-view  .table-cell{
+    -fx-alignment:CENTER_LEFT;
+}
+
+.table-view .table-cell{
+    -fx-border-color: transparent;
+}
+
+
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button, 
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
+}

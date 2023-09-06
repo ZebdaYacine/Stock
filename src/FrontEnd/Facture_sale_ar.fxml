@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="650.0" prefWidth="1340.0" styleClass="home" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.Facture_saleController">
+   <children>
+      <JFXTextField fx:id="code_facture" focusColor="#0099cc" labelFloat="true" layoutX="110.0" layoutY="10.0" onKeyReleased="#code" prefHeight="30.0" prefWidth="200.0" promptText="رقم الفاتورة" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id="delete" buttonType="RAISED" disable="true" layoutX="10.0" layoutY="60.0" onAction="#delete" prefHeight="30.0" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="حذف" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="RED" glyphName="DELETE" size="16" />
+         </graphic>
+      </JFXButton>
+      <Pane layoutX="180.0" layoutY="60.0" prefHeight="30.0" prefWidth="393.0" style="-fx-border-color: #081018; -fx-border-width: 2; -fx-background-radius: 5; -fx-border-radius: 5;">
+         <children>
+            <Label fx:id="DebtClientLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" prefHeight="30.0" prefWidth="293.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="7.0" text="دين الزبون" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="FactureTable" layoutX="30.0" layoutY="220.0" onMouseClicked="#selectFacture" prefHeight="410.0" prefWidth="563.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
+         <columns>
+            <TableColumn fx:id="codeC" prefWidth="60.0" text="الرقم" />
+            <TableColumn fx:id="clientC" prefWidth="110.0" text="الزبون" />
+            <TableColumn fx:id="dateC" prefWidth="130.0" text="التاريخ" />
+            <TableColumn fx:id="priceT_C" prefWidth="120.0" text="المجموع" />
+            <TableColumn fx:id="RemiseC" prefWidth="70.0" text="التخفيض" />
+            <TableColumn fx:id="paymentC" prefWidth="140.0" text="الدفع" />
+            <TableColumn fx:id="userC" prefWidth="100.0" text="المستخدم" />
+         </columns>
+      </TableView>
+      <Separator layoutX="589.0" layoutY="30.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="130.0" AnchorPane.topAnchor="10.0" />
+      <Pane layoutX="610.0" layoutY="10.0" prefHeight="30.0" prefWidth="350.0" style="-fx-border-color: #081018; -fx-border-width: 2; -fx-background-radius: 5; -fx-border-radius: 5;">
+         <children>
+            <Label fx:id="benefitFacture" alignment="CENTER" contentDisplay="CENTER" layoutX="120.0" prefHeight="30.0" prefWidth="230.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="7.0" text="فائدة الفاتورة" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXDatePicker fx:id="date" defaultColor="#0077cc" layoutX="1110.0" layoutY="10.0" onAction="#date" prefHeight="26.0" prefWidth="200.0" styleClass="jfxtextfield" AnchorPane.leftAnchor="1110.0" AnchorPane.rightAnchor="10.0" />
+      <TableView fx:id="SaleTable" layoutX="570.0" layoutY="80.0" prefHeight="440.0" prefWidth="740.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <columns>
+            <TableColumn fx:id="productC" prefWidth="220.0" text="المنتوج" />
+            <TableColumn fx:id="price_purchaseC" prefWidth="120.0" text="سعر الشراء" />
+            <TableColumn fx:id="quantityC" prefWidth="110.0" text="الكمية" />
+            <TableColumn fx:id="quantityRC" prefWidth="120.0" text="الكمية المسترجعة" />
+            <TableColumn fx:id="price_saleC" prefWidth="120.0" text="سعر البيع" />
+            <TableColumn fx:id="price_totelC" prefWidth="150.0" text="المجموع" />
+            <TableColumn fx:id="benefitC" prefWidth="140.0" text="الفائدة" />
+         </columns>
+      </TableView>
+      <TableView fx:id="SommeTable" layoutX="30.0" layoutY="540.0" onMouseClicked="#selectFacture" prefHeight="110.0" prefWidth="1280.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <columns>
+            <TableColumn fx:id="NbrFactureC" minWidth="0.0" prefWidth="160.0" text="عدد الفواتير" />
+            <TableColumn fx:id="SumMontentC" prefWidth="320.0" text="مجموع (المجموع)" />
+            <TableColumn fx:id="SumRemiseC" minWidth="0.0" prefWidth="240.0" text="مجموع (التخفيض)" />
+            <TableColumn fx:id="SumpaymentC" minWidth="0.0" prefWidth="320.0" text="مجموع (الدفع)" />
+            <TableColumn fx:id="SumMontent_RemiseC" prefWidth="400.0" text="مجموع (المجموع + التخفيض)" />
+         </columns>
+      </TableView>
+      <Label layoutX="10.0" layoutY="20.0" text="بحث بـ:" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="18.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="client" focusColor="#0099cc" layoutX="370.0" layoutY="10.0" onAction="#select_client" prefHeight="30.0" prefWidth="200.0" promptText="الزبون" styleClass="combo-box1" stylesheets="@../Style/style.css" unFocusColor="#0077cc" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="10.0" />
+   </children>
+</AnchorPane>

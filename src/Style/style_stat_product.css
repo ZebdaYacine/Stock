@@ -1,0 +1,17 @@
+.table-row-cell:hover {
+    -fx-background-color: #0a94b8;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0a94b8;
+}
+
+.table-view .column-header-background .filler{
+    -fx-background-color: #0a94b8;
+}
+.table-view .column-header-background .label{
+    -fx-background-color: #0a94b8;
+}
+.table-view .column-header{
+    -fx-background-color: #0a94b8;
+}

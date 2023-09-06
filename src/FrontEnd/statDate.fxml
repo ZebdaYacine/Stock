@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="330.0" prefWidth="600.0" styleClass="back" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.StatSaleController">
+   <children>
+      <JFXDatePicker fx:id="date1" defaultColor="#0077cc" layoutX="60.0" layoutY="40.0" onAction="#dateStat" prefHeight="25.0" prefWidth="200.0" styleClass="jfxtextfield" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="40.0" text="من" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Label>
+      <JFXDatePicker fx:id="date2" defaultColor="#0077cc" layoutX="380.0" layoutY="40.0" onAction="#dateStat" prefHeight="25.0" prefWidth="200.0" styleClass="jfxtextfield" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="340.0" layoutY="40.0" text="إلى" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
+         </font>
+      </Label>
+      <Pane layoutX="50.0" layoutY="100.0" prefHeight="50.0" prefWidth="500.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css" AnchorPane.bottomAnchor="170.0">
+         <children>
+            <Label fx:id="Purchases" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="30.0" prefWidth="360.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="#ff3313">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="10.0" prefHeight="30.0" text="المشتريات" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="50.0" layoutY="260.0" prefHeight="50.0" prefWidth="500.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css" AnchorPane.bottomAnchor="30.0">
+         <children>
+            <Label fx:id="Benefits" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="30.0" prefWidth="360.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="#20c700">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="10.0" prefHeight="30.0" text="الفائدة" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="50.0" layoutY="180.0" prefHeight="50.0" prefWidth="500.0" styleClass="pane_border" stylesheets="@../Style/style_stat.css" AnchorPane.bottomAnchor="100.0">
+         <children>
+            <Label fx:id="Sales" alignment="CENTER" contentDisplay="CENTER" layoutX="140.0" layoutY="10.0" prefHeight="30.0" prefWidth="360.0" stylesheets="@../Style/PurchaseCss.css" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="10.0" prefHeight="30.0" text="المبيعات" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

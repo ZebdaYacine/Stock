@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="1340.0" styleClass="home" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.SaleController">
+    <children>
+        <JFXTabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="650.0" prefWidth="1349.0" styleClass="specialJFXTabPane" stylesheets="@../Style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Client 1">
+                    <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" onKeyReleased="#hotkey" prefHeight="180.0" prefWidth="1097.0">
+                            <children>
+                                <JFXTextField fx:id="clientT" alignment="CENTER" editable="false" focusColor="#0099cc" labelFloat="true" layoutX="10.0" layoutY="28.0" onAction="#newFacture" onMouseClicked="#selectclient" prefHeight="30.0" prefWidth="330.0" promptText="Client" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                    <font>
+                                        <Font name="Times New Roman" size="18.0" />
+                                    </font>
+                                </JFXTextField>
+                                <Label fx:id="client_err" layoutX="10.0" layoutY="65.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="client error" visible="false">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox fx:id="barcode_err" layoutX="270.0" layoutY="10.0" maxWidth="300.0" prefHeight="55.0" prefWidth="210.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="780.0">
+                                    <children>
+                                        <JFXTextField fx:id="barcode" alignment="CENTER" focusColor="#0099cc" labelFloat="true" onAction="#lastPurchaseSale" prefHeight="30.0" prefWidth="180.0" promptText="Code à Barre" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </HBox>
+                                <Pane fx:id="price_purchase_err" layoutX="270.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="610.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="160.0" text="Prix d'achat" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_purchase" alignment="CENTER" editable="false" focusColor="#0099cc" layoutY="18.0" onMouseClicked="#selectPricePurchase" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="quantity_err" layoutX="510.0" layoutY="10.0" prefHeight="100.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="440.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="90.0" text="Quantité" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantity" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onAction="#calcPriceTotal" onKeyReleased="#calculePriceTotal" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label alignment="CENTER" layoutX="100.0" layoutY="5.0" prefHeight="16.0" prefWidth="60.0" text="Rest" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRest" alignment="CENTER" editable="false" focusColor="#0099cc" layoutX="100.0" layoutY="18.0" onKeyReleased="#calculePriceTotal" prefHeight="25.0" prefWidth="60.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label fx:id="quantityRlabel" alignment="CENTER" layoutY="75.0" prefHeight="16.0" prefWidth="56.0" text="Retour" textFill="WHITE" visible="false">
+                                            <font>
+                                                <Font name="Times New Roman" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRetour" alignment="CENTER" focusColor="#0099cc" layoutX="70.0" layoutY="60.0" onAction="#update" prefHeight="25.0" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc" visible="false">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="price_sale_err" layoutX="750.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="270.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefWidth="160.0" text="Prix ​​de vente" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_sale" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onKeyReleased="#calculePriceTotal" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <JFXCheckBox fx:id="speedSale" checkedColor="#0077cc" layoutX="350.0" layoutY="80.0" selected="true" text="Vente Rapide" textFill="WHITE" unCheckedColor="#0077cc">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXCheckBox>
+                                <Pane layoutX="520.0" layoutY="10.0" prefHeight="55.0" prefWidth="250.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="priceTotal" alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" prefHeight="30.0" prefWidth="250.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" prefWidth="250.0" text="Prix Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="add" buttonType="RAISED" layoutX="1210.0" layoutY="80.0" onAction="#add" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="Vente (F1)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="10.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#20c700" glyphName="DATABASE_MINUS" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="update" buttonType="RAISED" layoutX="780.0" layoutY="80.0" onAction="#update" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="Modifier (F2)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="140.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#fc8b18" glyphName="EDIT" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="delete" buttonType="RAISED" layoutX="650.0" layoutY="80.0" onAction="#delete" prefHeight="27.0" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="Supprimer" textFill="GHOSTWHITE" AnchorPane.rightAnchor="270.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#ff3313" glyphName="DELETE" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <Pane layoutX="1020.0" layoutY="120.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="LastDebt" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Ancien Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <TableView fx:id="SaleTable" layoutX="40.0" layoutY="320.0" onMouseClicked="#selectSale" prefHeight="320.0" prefWidth="900.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
+                                    <columns>
+                                        <TableColumn fx:id="productC" minWidth="150.0" prefWidth="240.0" text="Produit" />
+                                        <TableColumn fx:id="price_purchaseC" prefWidth="140.0" text="Prix d'achat" />
+                                        <TableColumn fx:id="quantityC" prefWidth="140.0" text="Quantité" />
+                                        <TableColumn fx:id="quantityRC" prefWidth="100.0" text="Quantité Retour" visible="false" />
+                                        <TableColumn fx:id="price_saleC" prefWidth="140.0" text="Prix ​​de vente" />
+                                        <TableColumn fx:id="price_totelC" prefWidth="180.0" text="Prix Total" />
+                                        <TableColumn fx:id="benefitC" prefWidth="180.0" text="Beneficer" />
+                                    </columns>
+                                </TableView>
+                                <Pane layoutX="1020.0" layoutY="200.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0">
+                                    <children>
+                                        <Label fx:id="MontentTotal" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Montant Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <HBox fx:id="remise_err" layoutX="1020.0" layoutY="280.0" prefHeight="60.0" prefWidth="280.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="670.0">
+                                    <children>
+                                        <JFXTextField fx:id="remiseValue" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onKeyReleased="#calcule_montent" prefHeight="30.0" prefWidth="120.0" promptText="Remise" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                        <VBox HBox.hgrow="ALWAYS">
+                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Montant Total - Remise" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Times New Roman" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets top="5.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Label fx:id="MontentTotal_remise" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="150.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                                <font>
+                                                    <Font name="Agency FB" size="30.0" />
+                                                </font>
+                                            </Label>
+                    
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Pane layoutX="1020.0" layoutY="360.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="480.0">
+                                    <children>
+                                        <Label fx:id="Debt_Montent" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Nouveau Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="payment_err" layoutX="1020.0" layoutY="440.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="290.0">
+                                    <children>
+                                        <JFXTextField fx:id="Payment" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onAction="#apply" onKeyReleased="#calcule_rest" prefHeight="30.0" prefWidth="170.0" promptText="Versement" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="1020.0" layoutY="520.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+                                    <children>
+                                        <Label fx:id="DebtR" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Restant Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="applyFacture" layoutX="1020.0" layoutY="590.0" onAction="#apply" prefHeight="60.0" prefWidth="80.0" styleClass="printbtn" stylesheets="@../Style/buttons_style.css" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                    <graphic>
+                                        <MaterialDesignIconView fill="WHITE" glyphName="CHECKBOX_MARKED_CIRCLE_OUTLINE" size="20" />
+                                    </graphic>
+                                </JFXButton>
+                                <VBox fx:id="product_err" layoutX="10.0" layoutY="127.0" prefHeight="510.0" prefWidth="330.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0">
+                                    <children>
+                                        <JFXTextField fx:id="productT" alignment="CENTER" focusColor="#0099cc" onKeyReleased="#search_product" prefWidth="190.0" promptText="recherche par produit" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                        </JFXTextField>
+                                        <TableView fx:id="goodsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#select_Product" prefHeight="390.0" prefWidth="210.0" stylesheets="@../Style/Table_Css.css" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="productSelectC" prefWidth="200.0" text="produit" />
+                                                <TableColumn fx:id="quantitySelectC" prefWidth="190.0" text="Quantite" />
+                                            </columns>
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+        
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Client 2">
+                    <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" onKeyReleased="#hotkey2" prefHeight="180.0" prefWidth="1097.0">
+                            <children>
+                                <JFXTextField fx:id="clientT2" alignment="CENTER" editable="false" focusColor="#0099cc" labelFloat="true" layoutX="10.0" layoutY="28.0" onAction="#newFacture2" onMouseClicked="#selectclient2" prefHeight="30.0" prefWidth="330.0" promptText="Client" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                    <font>
+                                        <Font name="Times New Roman" size="18.0" />
+                                    </font>
+                                </JFXTextField>
+                                <Label fx:id="client_err2" layoutX="40.0" layoutY="65.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="client error" visible="false">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox fx:id="barcode_err2" layoutX="270.0" layoutY="10.0" maxWidth="300.0" prefHeight="55.0" prefWidth="210.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="780.0">
+                                    <children>
+                                        <JFXTextField fx:id="barcode2" alignment="CENTER" focusColor="#0099cc" labelFloat="true" onAction="#lastPurchaseSale2" prefHeight="30.0" prefWidth="180.0" promptText="Code à Barre" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </HBox>
+                                <Pane fx:id="price_purchase_err2" layoutX="270.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="610.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="160.0" text="Prix d'achat" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_purchase2" alignment="CENTER" editable="false" focusColor="#0099cc" layoutY="18.0" onMouseClicked="#selectPricePurchase2" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="quantity_err2" layoutX="510.0" layoutY="10.0" prefHeight="100.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="440.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="90.0" text="Quantité" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantity2" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onAction="#calcPriceTotal2" onKeyReleased="#calculePriceTotal2" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label alignment="CENTER" layoutX="100.0" layoutY="5.0" prefHeight="16.0" prefWidth="60.0" text="Rest" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRest2" alignment="CENTER" editable="false" focusColor="#0099cc" layoutX="100.0" layoutY="18.0" onKeyReleased="#calculePriceTotal2" prefHeight="25.0" prefWidth="60.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label fx:id="quantityRlabel2" alignment="CENTER" layoutY="75.0" prefHeight="16.0" prefWidth="56.0" text="Retour" textFill="WHITE" visible="false">
+                                            <font>
+                                                <Font name="Times New Roman" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRetour2" alignment="CENTER" focusColor="#0099cc" layoutX="70.0" layoutY="60.0" onAction="#update2" prefHeight="25.0" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc" visible="false">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="price_sale_err2" layoutX="750.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="270.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefWidth="160.0" text="Prix ​​de vente" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_sale2" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onKeyReleased="#calculePriceTotal2" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <JFXCheckBox fx:id="speedSale2" checkedColor="#0077cc" layoutX="350.0" layoutY="80.0" selected="true" text="Vente Rapide" textFill="WHITE" unCheckedColor="#0077cc">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXCheckBox>
+                                <Pane layoutX="520.0" layoutY="10.0" prefHeight="55.0" prefWidth="250.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="priceTotal2" alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" prefHeight="30.0" prefWidth="250.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" prefWidth="250.0" text="Prix Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="add2" buttonType="RAISED" layoutX="1210.0" layoutY="80.0" onAction="#add2" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="Vente (F1)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="10.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#20c700" glyphName="DATABASE_MINUS" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="update2" buttonType="RAISED" layoutX="780.0" layoutY="80.0" onAction="#update2" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="Modifier (F2)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="140.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#fc8b18" glyphName="EDIT" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="delete2" buttonType="RAISED" layoutX="650.0" layoutY="80.0" onAction="#delete2" prefHeight="27.0" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="Supprimer" textFill="GHOSTWHITE" AnchorPane.rightAnchor="270.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#ff3313" glyphName="DELETE" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <Pane layoutX="1020.0" layoutY="120.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="LastDebt2" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Ancien Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <TableView fx:id="SaleTable2" layoutX="40.0" layoutY="320.0" onMouseClicked="#selectSale2" prefHeight="320.0" prefWidth="900.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
+                                    <columns>
+                                        <TableColumn fx:id="productC2" minWidth="150.0" prefWidth="240.0" text="Produit" />
+                                        <TableColumn fx:id="price_purchaseC2" prefWidth="140.0" text="Prix d'achat" />
+                                        <TableColumn fx:id="quantityC2" prefWidth="140.0" text="Quantité" />
+                                        <TableColumn fx:id="quantityRC2" prefWidth="100.0" text="Quantité Retour" visible="false" />
+                                        <TableColumn fx:id="price_saleC2" prefWidth="140.0" text="Prix ​​de vente" />
+                                        <TableColumn fx:id="price_totelC2" prefWidth="180.0" text="Prix Total" />
+                                        <TableColumn fx:id="benefitC2" prefWidth="180.0" text="Beneficer" />
+                                    </columns>
+                                </TableView>
+                                <Pane layoutX="1020.0" layoutY="200.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0">
+                                    <children>
+                                        <Label fx:id="MontentTotal2" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Montant Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <HBox fx:id="remise_err2" layoutX="1020.0" layoutY="280.0" prefHeight="60.0" prefWidth="280.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="670.0">
+                                    <children>
+                                        <JFXTextField fx:id="remiseValue2" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onKeyReleased="#calcule_montent2" prefHeight="30.0" prefWidth="120.0" promptText="Remise" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                        <VBox HBox.hgrow="ALWAYS">
+                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Montant Total - Remise" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Times New Roman" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets top="5.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Label fx:id="MontentTotal_remise2" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="150.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                                <font>
+                                                    <Font name="Agency FB" size="30.0" />
+                                                </font>
+                                            </Label>
+                    
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Pane layoutX="1020.0" layoutY="360.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="480.0">
+                                    <children>
+                                        <Label fx:id="Debt_Montent2" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Nouveau Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="payment_err2" layoutX="1020.0" layoutY="440.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="290.0">
+                                    <children>
+                                        <JFXTextField fx:id="Payment2" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onAction="#apply2" onKeyReleased="#calcule_rest2" prefHeight="30.0" prefWidth="170.0" promptText="Versement" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="1020.0" layoutY="520.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+                                    <children>
+                                        <Label fx:id="DebtR2" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Restant Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="applyFacture2" layoutX="1020.0" layoutY="590.0" onAction="#apply2" prefHeight="60.0" prefWidth="80.0" styleClass="printbtn" stylesheets="@../Style/buttons_style.css" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                    <graphic>
+                                        <MaterialDesignIconView fill="WHITE" glyphName="CHECKBOX_MARKED_CIRCLE_OUTLINE" size="20" />
+                                    </graphic>
+                                </JFXButton>
+                                <VBox fx:id="product_err2" layoutX="10.0" layoutY="127.0" prefHeight="510.0" prefWidth="330.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0">
+                                    <children>
+                                        <JFXTextField fx:id="productT2" alignment="CENTER" focusColor="#0099cc" onKeyReleased="#search_product2" prefWidth="190.0" promptText="recherche par produit" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                        </JFXTextField>
+                                        <TableView fx:id="goodsTable2" maxHeight="900.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#select_Product2" prefHeight="390.0" prefWidth="210.0" stylesheets="@../Style/Table_Css.css" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="productSelectC2" prefWidth="200.0" text="produit" />
+                                                <TableColumn fx:id="quantitySelectC2" prefWidth="190.0" text="Quantite" />
+                                            </columns>
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+        
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Client 3">
+                    <content>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" onKeyReleased="#hotkey3" prefHeight="180.0" prefWidth="1097.0">
+                            <children>
+                                <JFXTextField fx:id="clientT3" alignment="CENTER" editable="false" focusColor="#0099cc" labelFloat="true" layoutX="10.0" layoutY="28.0" onAction="#newFacture3" onMouseClicked="#selectclient3" prefHeight="30.0" prefWidth="330.0" promptText="Client" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                    <font>
+                                        <Font name="Times New Roman" size="18.0" />
+                                    </font>
+                                </JFXTextField>
+                                <Label fx:id="client_err3" layoutX="40.0" layoutY="65.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="client error" visible="false">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox fx:id="barcode_err3" layoutX="270.0" layoutY="10.0" maxWidth="300.0" prefHeight="55.0" prefWidth="210.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="780.0">
+                                    <children>
+                                        <JFXTextField fx:id="barcode3" alignment="CENTER" focusColor="#0099cc" labelFloat="true" onAction="#lastPurchaseSale3" prefHeight="30.0" prefWidth="180.0" promptText="Code à Barre" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc" HBox.hgrow="ALWAYS">
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </HBox>
+                                <Pane fx:id="price_purchase_err3" layoutX="270.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="610.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="160.0" text="Prix d'achat" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_purchase3" alignment="CENTER" editable="false" focusColor="#0099cc" layoutY="18.0" onMouseClicked="#selectPricePurchase3" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="quantity_err3" layoutX="510.0" layoutY="10.0" prefHeight="100.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="440.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="90.0" text="Quantité" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantity3" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onAction="#calcPriceTotal3" onKeyReleased="#calculePriceTotal3" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label alignment="CENTER" layoutX="100.0" layoutY="5.0" prefHeight="16.0" prefWidth="60.0" text="Rest" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRest3" alignment="CENTER" editable="false" focusColor="#0099cc" layoutX="100.0" layoutY="18.0" onKeyReleased="#calculePriceTotal3" prefHeight="25.0" prefWidth="60.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="1" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                        <Label fx:id="quantityRlabel3" alignment="CENTER" layoutY="75.0" prefHeight="16.0" prefWidth="56.0" text="Retour" textFill="WHITE" visible="false">
+                                            <font>
+                                                <Font name="Times New Roman" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="quantityRetour3" alignment="CENTER" focusColor="#0099cc" layoutX="70.0" layoutY="60.0" onAction="#update3" prefHeight="25.0" prefWidth="90.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc" visible="false">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="price_sale_err3" layoutX="750.0" layoutY="10.0" prefHeight="55.0" prefWidth="160.0" styleClass="pane_textfield" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="270.0">
+                                    <children>
+                                        <Label alignment="CENTER" layoutY="5.0" prefWidth="160.0" text="Prix ​​de vente" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <JFXTextField fx:id="price_sale3" alignment="CENTER" focusColor="#0099cc" layoutY="18.0" onKeyReleased="#calculePriceTotal3" prefWidth="160.0" promptText="0.00" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="16.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <JFXCheckBox fx:id="speedSale3" checkedColor="#0077cc" layoutX="350.0" layoutY="80.0" selected="true" text="Vente Rapide" textFill="WHITE" unCheckedColor="#0077cc">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </JFXCheckBox>
+                                <Pane layoutX="520.0" layoutY="10.0" prefHeight="55.0" prefWidth="250.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.rightAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="priceTotal3" alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" prefHeight="30.0" prefWidth="250.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="36.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" prefWidth="250.0" text="Prix Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="add3" buttonType="RAISED" layoutX="1210.0" layoutY="80.0" onAction="#add3" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="Vente (F1)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="10.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#20c700" glyphName="DATABASE_MINUS" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="update3" buttonType="RAISED" layoutX="780.0" layoutY="80.0" onAction="#update3" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="Modifier (F2)" textFill="GHOSTWHITE" AnchorPane.rightAnchor="140.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <FontAwesomeIconView fill="#fc8b18" glyphName="EDIT" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="delete3" buttonType="RAISED" layoutX="650.0" layoutY="80.0" onAction="#delete3" prefHeight="27.0" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="Supprimer" textFill="GHOSTWHITE" AnchorPane.rightAnchor="270.0">
+                                    <font>
+                                        <Font name="Times New Roman" size="14.0" />
+                                    </font>
+                                    <graphic>
+                                        <MaterialDesignIconView fill="#ff3313" glyphName="DELETE" size="16" />
+                                    </graphic>
+                                </JFXButton>
+                                <Pane layoutX="1020.0" layoutY="120.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                                    <children>
+                                        <Label fx:id="LastDebt3" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Ancien Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <TableView fx:id="SaleTable3" layoutX="40.0" layoutY="320.0" onMouseClicked="#selectSale3" prefHeight="320.0" prefWidth="900.0" stylesheets="@../Style/Table_Css.css" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
+                                    <columns>
+                                        <TableColumn fx:id="productC3" minWidth="150.0" prefWidth="240.0" text="Produit" />
+                                        <TableColumn fx:id="price_purchaseC3" prefWidth="140.0" text="Prix d'achat" />
+                                        <TableColumn fx:id="quantityC3" prefWidth="140.0" text="Quantité" />
+                                        <TableColumn fx:id="quantityRC3" prefWidth="100.0" text="Quantité Retour" visible="false" />
+                                        <TableColumn fx:id="price_saleC3" prefWidth="140.0" text="Prix ​​de vente" />
+                                        <TableColumn fx:id="price_totelC3" prefWidth="180.0" text="Prix Total" />
+                                        <TableColumn fx:id="benefitC3" prefWidth="180.0" text="Beneficer" />
+                                    </columns>
+                                </TableView>
+                                <Pane layoutX="1020.0" layoutY="200.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0">
+                                    <children>
+                                        <Label fx:id="MontentTotal3" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Montant Total" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <HBox fx:id="remise_err3" layoutX="1020.0" layoutY="280.0" prefHeight="60.0" prefWidth="280.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="670.0">
+                                    <children>
+                                        <JFXTextField fx:id="remiseValue3" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onKeyReleased="#calcule_montent3" prefHeight="30.0" prefWidth="120.0" promptText="Remise" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="18.0" />
+                                            </HBox.margin>
+                                        </JFXTextField>
+                                        <VBox HBox.hgrow="ALWAYS">
+                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="5.0" maxWidth="1.7976931348623157E308" prefWidth="150.0" text="Montant Total - Remise" textFill="WHITE">
+                                                <font>
+                                                    <Font name="Times New Roman" size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets top="5.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Label fx:id="MontentTotal_remise3" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="22.0" maxWidth="1.7976931348623157E308" prefHeight="28.0" prefWidth="150.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+                                                <font>
+                                                    <Font name="Agency FB" size="30.0" />
+                                                </font>
+                                            </Label>
+                    
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Pane layoutX="1020.0" layoutY="360.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="480.0">
+                                    <children>
+                                        <Label fx:id="Debt_Montent3" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefHeight="16.0" prefWidth="180.0" text="Nouveau Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane fx:id="payment_err3" layoutX="1020.0" layoutY="440.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_Payment" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="290.0">
+                                    <children>
+                                        <JFXTextField fx:id="Payment3" alignment="CENTER" focusColor="#0099cc" labelFloat="true" layoutX="5.0" layoutY="18.0" onAction="#apply" onKeyReleased="#calcule_rest3" prefHeight="30.0" prefWidth="170.0" promptText="Versement" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#0077cc">
+                                            <font>
+                                                <Font name="Agency FB" size="18.0" />
+                                            </font>
+                                        </JFXTextField>
+                                    </children>
+                                </Pane>
+                                <Pane layoutX="1020.0" layoutY="520.0" prefHeight="60.0" prefWidth="180.0" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+                                    <children>
+                                        <Label fx:id="DebtR3" alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="28.0" prefWidth="180.0" text="0.00" textFill="#f70d1b">
+                                            <font>
+                                                <Font name="Agency FB" size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="5.0" prefWidth="180.0" text="Restant Dette" textFill="WHITE">
+                                            <font>
+                                                <Font name="Times New Roman" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <JFXButton fx:id="applyFacture3" layoutX="1020.0" layoutY="590.0" onAction="#apply3" prefHeight="60.0" prefWidth="80.0" styleClass="printbtn" stylesheets="@../Style/buttons_style.css" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                    <graphic>
+                                        <MaterialDesignIconView fill="WHITE" glyphName="CHECKBOX_MARKED_CIRCLE_OUTLINE" size="20" />
+                                    </graphic>
+                                </JFXButton>
+                                <VBox fx:id="product_err3" layoutX="10.0" layoutY="127.0" prefHeight="510.0" prefWidth="330.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0">
+                                    <children>
+                                        <JFXTextField fx:id="productT3" alignment="CENTER" focusColor="#0099cc" onKeyReleased="#search_product3" prefWidth="190.0" promptText="recherche par produit" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#0077cc">
+                                            <VBox.margin>
+                                                <Insets />
+                                            </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                        </JFXTextField>
+                                        <TableView fx:id="goodsTable3" maxHeight="900.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#select_Product3" prefHeight="390.0" prefWidth="210.0" stylesheets="@../Style/Table_Css.css" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="productSelectC3" prefWidth="200.0" text="produit" />
+                                                <TableColumn fx:id="quantitySelectC3" prefWidth="190.0" text="Quantite" />
+                                            </columns>
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+        
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </JFXTabPane>
+    </children>
+</AnchorPane>

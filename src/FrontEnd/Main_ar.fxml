@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" onMouseDragged="#drag" onMousePressed="#press" prefHeight="700.0" prefWidth="1340.0" styleClass="back" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.MainController">
+   <children>
+      <MenuBar layoutX="1177.0" styleClass="menu-item" stylesheets="@../Style/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="تسيير">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#Product" text="المنتوجات" />
+                  <MenuItem mnemonicParsing="false" onAction="#Client" text="الزبائن" />
+                  <MenuItem mnemonicParsing="false" onAction="#Provider" text="الموردين" />
+                  <MenuItem fx:id="user" mnemonicParsing="false" onAction="#User" text="المستخدمين" />
+                  <MenuItem fx:id="exp" mnemonicParsing="false" onAction="#Exp" text="النفقات" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="العربية" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#ar" text="العربية" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#fr" text="الفرنسية" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="حول البرنامج">
+               <items>
+              <MenuItem mnemonicParsing="false" onAction="#About" text="حول البرنامج" />
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox alignment="TOP_CENTER" prefHeight="370.0" prefWidth="200.0" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <JFXButton fx:id="stat" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btn1" prefHeight="60.0" prefWidth="200.0" styleClass="mainbtn" stylesheets="@../Style/buttons_style.css" text="الإحصائيات" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="CHART_AREASPLINE" size="24" />
+               </graphic>
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="sale" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btn2" prefHeight="60.0" prefWidth="200.0" styleClass="mainbtn" stylesheets="@../Style/buttons_style.css" text="البيع" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="DATABASE_MINUS" size="24" />
+               </graphic>
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="purchase" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#btn3" prefHeight="60.0" prefWidth="200.0" styleClass="mainbtn" stylesheets="@../Style/buttons_style.css" text="الشراء" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="DATABASE_PLUS" size="24" />
+               </graphic>
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="Facture_Sale" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#Facture_Sale" prefHeight="60.0" prefWidth="200.0" styleClass="mainbtn" stylesheets="@../Style/buttons_style.css" text="وصل البيع" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="FILE_DOCUMENT_BOX" size="24" />
+               </graphic>
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="Facture_Purchase" alignment="BASELINE_LEFT" buttonType="RAISED" onAction="#Facture_Purchase" prefHeight="60.0" prefWidth="200.0" styleClass="mainbtn" stylesheets="@../Style/buttons_style.css" text="وصل الشراء" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="FILE_DOCUMENT_BOX" size="24" />
+               </graphic>
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Pane AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Label layoutX="4.0" text="Hy Stock" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="36.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="WHITE" glyphName="VIEW_DASHBOARD" size="50" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Label>
+         </children>
+      </Pane>
+      <BorderPane fx:id="main" layoutY="60.0" prefHeight="650.0" prefWidth="1340.0" style="-fx-border-color: transparent transparent transparent #0077cc;" styleClass="home" stylesheets="@../Style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

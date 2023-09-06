@@ -1,0 +1,62 @@
+.addbtn
+{
+    -fx-background-color: linear-gradient( #081018 90%, #20c700 100%);
+}
+
+.addbtn:hover 
+{
+    -fx-background-color :  linear-gradient( #081018 60%, #20c700 100%);
+}
+
+.delbtn
+{
+    -fx-background-color: linear-gradient( #081018 90%, #ff3313 100%);
+}
+
+.delbtn:hover 
+{
+    -fx-background-color :  linear-gradient( #081018 60%, #ff3313 100%);
+}
+
+.upbtn
+{
+    -fx-background-color: linear-gradient( #081018 90%, #fc8b18 100%);
+}
+
+.upbtn:hover 
+{
+    -fx-background-color :  linear-gradient( #081018 60%, #fc8b18 100%);
+}
+
+.gbtn
+{
+    -fx-background-color : transparent;
+    -fx-border-color: #192734;
+}
+
+.gbtn:hover 
+{
+    -fx-border-color: white;
+}
+
+.printbtn
+{
+    -fx-background-color : #3d7ec4;
+}
+
+.printbtn:hover 
+{
+    -fx-background-color :  #30659e;
+}
+
+.mainbtn
+{
+    -fx-background-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0
+}
+
+.mainbtn:hover 
+{
+    -fx-alignment: CENTER
+}

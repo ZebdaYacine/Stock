@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="450.0" prefWidth="660.0" styleClass="back" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.ExpController">
+   <children>
+      <JFXComboBox fx:id="expcombo" focusColor="#0099cc" layoutX="14.0" layoutY="21.0" onAction="#selectexp" prefHeight="34.0" prefWidth="250.0" promptText="النفقة" styleClass="combo-box2" stylesheets="@../Style/style.css" unFocusColor="#0077cc" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <JFXTextField fx:id="montent" alignment="CENTER" focusColor="#0099cc" layoutX="435.0" layoutY="11.0" prefHeight="30.0" prefWidth="250.0" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0.00" unFocusColor="#0077cc" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Agency FB" size="18.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton buttonType="RAISED" layoutX="530.0" layoutY="80.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#add" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="إضافة" textFill="GHOSTWHITE" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#20c700" glyphName="PLUS" size="16" />
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="400.0" layoutY="80.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#update" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="تعديل" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="#fc8b18" glyphName="EDIT" size="16" />
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="270.0" layoutY="80.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#delete" prefHeight="27.0" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="حذف" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="#ff3313" glyphName="DELETE" size="16" />
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="261.0" layoutY="14.0" onAction="#addExp" styleClass="gbtn" stylesheets="@../Style/buttons_style.css" textFill="GHOSTWHITE">
+         <graphic>
+            <FontAwesomeIconView fill="#0077cc" glyphName="PLUS" size="16" />
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="expTable" layoutX="10.0" layoutY="240.0" onMouseClicked="#select_exp" prefHeight="353.0" prefWidth="640.0" stylesheets="@../Style/Table_Gestion_Css.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0">
+         <columns>
+            <TableColumn fx:id="typeC" prefWidth="225.0" text="النفقة" />
+            <TableColumn fx:id="montentC" prefWidth="214.0" text="المبلغ" />
+            <TableColumn fx:id="dateC" prefWidth="208.0" text="التاريخ" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

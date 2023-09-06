@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseExited="#close" prefHeight="100.0" prefWidth="260.0" styleClass="home" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.SelectPricePurchaseController">
+    <TableView fx:id="SelectpriceT" onMouseClicked="#selectprice" prefHeight="100.0" prefWidth="260.0" stylesheets="@../Style/Table_Css.css">
+        <columns>
+            <TableColumn fx:id="pricePurchaseC" prefWidth="94.0" text="Prix d'achat" />
+            <TableColumn fx:id="quantityRC" prefWidth="118.0" text="Quantite Rest" />
+            <TableColumn fx:id="priceSaleC" prefWidth="100.0" text="Prix de Vente" />
+        </columns>
+    </TableView>
+</AnchorPane>

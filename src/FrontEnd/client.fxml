@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="650.0" styleClass="back" stylesheets="@../Style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UIController.ClientController">
+   <children>
+      <JFXTextField fx:id="name" focusColor="WHITE" labelFloat="true" layoutX="30.0" layoutY="30.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#ff4d00">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="phone" focusColor="WHITE" labelFloat="true" layoutX="420.0" layoutY="30.0" prefHeight="30.0" prefWidth="200.0" promptText="Téléphone" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#ff4d00">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="adr" focusColor="WHITE" labelFloat="true" layoutX="30.0" layoutY="110.0" prefHeight="30.0" prefWidth="200.0" promptText="Adresse" styleClass="jfxtextfield" stylesheets="@../Style/style.css" unFocusColor="#ff4d00">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="debt" focusColor="WHITE" labelFloat="true" layoutX="420.0" layoutY="110.0" prefHeight="30.0" prefWidth="200.0" promptText="Ancien Dette" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="0" unFocusColor="#ff4d00" />
+      <JFXTextField fx:id="maxDebt" focusColor="WHITE" labelFloat="true" layoutX="420.0" layoutY="190.0" prefHeight="30.0" prefWidth="200.0" promptText="Max Dette" styleClass="jfxtextfield" stylesheets="@../Style/style.css" text="15000" unFocusColor="#ff4d00" />
+      <Label fx:id="name_err" layoutX="30.0" layoutY="63.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="name_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phone_err" layoutX="420.0" layoutY="63.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="phone_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="adr_err" layoutX="30.0" layoutY="143.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="adresses_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="debt_err" layoutX="420.0" layoutY="143.0" styleClass="labels_err" stylesheets="@../Style/style.css" text="dept_error" visible="false">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="30.0" layoutY="197.0" onAction="#add" prefHeight="27.0" prefWidth="120.0" styleClass="addbtn" stylesheets="@../Style/buttons_style.css" text="Ajouter" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_PLUS" size="16" />
+         </graphic></JFXButton>
+      <JFXButton fx:id="update" layoutX="160.0" layoutY="197.0" onAction="#update" prefWidth="120.0" styleClass="upbtn" stylesheets="@../Style/buttons_style.css" text="Modifier" textFill="GHOSTWHITE">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="16" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="delete" buttonType="RAISED" layoutX="290.0" layoutY="197.0" onAction="#delete" prefWidth="120.0" styleClass="delbtn" stylesheets="@../Style/buttons_style.css" text="Supprimer" textFill="GHOSTWHITE" visible="false">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="16" />
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="clientTable" layoutY="240.0" onMouseClicked="#select_client" prefHeight="260.0" prefWidth="650.0" stylesheets="@../Style/Table_Gestion_Css.css" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <columns>
+            <TableColumn fx:id="nameC" prefWidth="180.0" text="nom" />
+            <TableColumn fx:id="phoneC" prefWidth="100.0" text="Téléphone" />
+            <TableColumn fx:id="adrC" prefWidth="180.0" text="adresse" />
+            <TableColumn fx:id="deptC" prefWidth="100.0" text="dette" />
+            <TableColumn fx:id="deptmaxC" prefWidth="100.0" text="max dette" />
+         </columns>
+      </TableView>
+      <Pane layoutX="30.0" layoutY="511.0" prefHeight="30.0" prefWidth="590.0" style="-fx-border-radius: 5;" styleClass="pane_MontentTotal" stylesheets="@../Style/PurchaseCss.css" AnchorPane.bottomAnchor="10.0">
+         <children>
+            <Label fx:id="benefitClient" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" prefHeight="30.0" prefWidth="420.0" styleClass="label_priceT" stylesheets="@../Style/PurchaseCss.css" text="0.00" textFill="#f70d1b">
+               <font>
+                  <Font name="Times New Roman" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="7.0" text="Beneficer Client" textFill="WHITE">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
